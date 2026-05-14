@@ -3,24 +3,23 @@
 #include <stdlib.h>
 int main()
 {
-	int lotto[6], i, j, k;
+	int lotto[6], i, j;
 	srand(time(NULL));
 	
-	for(k=0; k<10; k++)
 	{
-		for(i=0; i<10; i++)
+		for(i=0; i<6; i++)
 		{
 			lotto[i] = rand() % 45 + 1;
-			for(j=0;j<i;j++) //�ߺ� üũ
+			for(j=0;j<i;j++) //중복 체크
 			{
 				if(lotto[i] == lotto[j])
 				{
-					i--; //�ٽû̱�
+					i--; //다시뽑기
 					break;
 				}
 		    }
 		}
-		printf("�ζ� ��ȣ : ");
+		printf("로또 번호 : ");
 		for(i=0;i<6;i++) printf("%d ", lotto[i]);
 		printf("\n");
 	}
